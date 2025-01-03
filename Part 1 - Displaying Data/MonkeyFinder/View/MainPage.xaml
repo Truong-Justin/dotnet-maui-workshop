@@ -27,14 +27,8 @@
                            WidthRequest="200"
                            Aspect="AspectFill"></Image>
                     <VerticalStackLayout Padding="10" Spacing="10" VerticalOptions="Center">
-                        <Label>
-                            <Label.Text>
-                                <MultiBinding StringFormat="{}{0} | {1}">
-                                    <Binding Path="Name" />
-                                    <Binding Path="Location" />
-                                </MultiBinding>
-                            </Label.Text>
-                        </Label>
+                        <Label Text="{Binding Name}" />
+                        <Label Text="{Binding Location}" />
                     </VerticalStackLayout>
                 </HorizontalStackLayout>
             </DataTemplate>

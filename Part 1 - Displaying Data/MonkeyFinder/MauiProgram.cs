@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using MonkeyFinder.Services;
 using MonkeyFinder.View;
 
 namespace MonkeyFinder;
@@ -19,7 +20,10 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
 
-		builder.Services.AddSingleton<MainPage>();
+        // Makes sure that any dependencies MainPage needs can be injected by the DI container when page is created.
+        builder.Services.AddSingleton<MainPage>(); 
+		builder.Services.AddSingleton<MonkeyService>();
+		builder.Services.AddSingleton<MonkeysViewModel>();
 
 		return builder.Build();
 	}
