@@ -5,7 +5,7 @@ namespace MonkeyFinder.ViewModel;
 public partial class MonkeysViewModel : BaseViewModel
 {
     private MonkeyService monkeyService;
-    // Raises the notifications to .NET Maui without us having to explicitly do so.
+    // Raises the CollectionChanged event to .NET Maui without us having to explicitly do so.
     public ObservableCollection<Monkey> Monkeys { get; } = new ObservableCollection<Monkey>();
 
     public MonkeysViewModel(MonkeyService monkeyService)
@@ -30,7 +30,7 @@ public partial class MonkeysViewModel : BaseViewModel
 
             foreach (Monkey monkey in monkeys)
             {
-                Monkeys.Add(monkey); // Will raise OnPropertyChanged for each item added, which isn't very efficient.
+                Monkeys.Add(monkey); // Will raise CollectionChanged for each item added, which isn't very efficient.
             }
 
         }
