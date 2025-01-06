@@ -21,10 +21,13 @@ public static class MauiProgram
 #endif
 
         // Makes sure that any dependencies MainPage needs can be injected by the DI container when page is created.
-        builder.Services.AddSingleton<MainPage>(); 
+        builder.Services.AddSingleton<MainPage>();
+		builder.Services.AddTransient<DetailsPage>();
 		builder.Services.AddSingleton<MonkeyService>();
 		builder.Services.AddSingleton<MonkeysViewModel>();
+        builder.Services.AddTransient<MonkeyDetailsViewModel>();
 
-		return builder.Build();
+
+        return builder.Build();
 	}
 }

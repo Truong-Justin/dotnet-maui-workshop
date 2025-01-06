@@ -21,6 +21,14 @@
                     <Grid Padding="10">
                         <Frame HeightRequest="125"
                                Padding="0">
+                            <Frame.GestureRecognizers>
+                                <!--*CommandParameters(Binds to the current monkey)-->
+                                <!--*RelativeSource(Look at a nearby thing like a parent or a sibling)-->
+                                <!--*AncestorType(Means to go up the family tree until you find something called MonkeysViewModel)-->
+                                <!--*Path(Once you find MonkeysViewModel, look inside the VM and execute GoDetailsCommand)-->
+                                <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MonkeysViewModel}}, Path=GoToDetailsCommand}" />
+                            </Frame.GestureRecognizers>
                             <Grid Padding="0"
                                   ColumnDefinitions="125, *">
                                 <Image Aspect="AspectFill"
